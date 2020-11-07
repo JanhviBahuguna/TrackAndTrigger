@@ -10,4 +10,14 @@
     <string name="register_phone_hint">Phone</string>
     <string name="register_button">Register</string>
     <string name="click_here_to_register">Click here to register</string>
+    <string name="Click_here_to_login">Click here to login</string>
+    <string name="textview">Hello Jay</string>
+    <string name="create_new_account">Create New Account</string>
+    <string name="login_register_button">Register</string>
+    <string name="register_login">Login</string>
+    <string name="dashboard_contents">Contents</string>
+    <string name="dashboard_home">Home</string>
+    <string name="dashboard_work">Work</string>
+    <string name="dashboard_todo">To-Do</string>
+    <string name="dashboard_study">Study</string>
 </resources>

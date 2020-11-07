@@ -13,14 +13,15 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="75dp"
         android:layout_marginEnd="100dp"
-        android:ems="10"
         android:autofillHints=""
+        android:ems="10"
         android:hint="@string/register_username_hint"
         android:inputType="text"
         android:textAlignment="textStart"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/register_password_text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -86,5 +87,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/register_phone_text" />
+
+    <Button
+        android:id="@+id/register_login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="125dp"
+        android:text="@string/register_login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/register_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
