@@ -31,9 +31,6 @@ public class MainActivity extends AppCompatActivity {
 
     EditText username, password;
     private Button login, register;
-    boolean isEmailValid, isPasswordValid;
-    TextInputLayout usernameError, passwordError;
-    TextView click_here_to_register;
     DatabaseReference reff;
 
     @Override
@@ -48,8 +45,10 @@ public class MainActivity extends AppCompatActivity {
         register = (Button) findViewById(R.id.login_register_button);
 
         login.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+
                 reff = FirebaseDatabase.getInstance().getReference().child("Register_data").child("username");
                 reff.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -67,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 });
-
+                openDashboard();
                 register.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -77,11 +76,16 @@ public class MainActivity extends AppCompatActivity {
             }
 
 
+
         });
 
     }
     public void openRegister() {
         Intent intent = new Intent(this, Register_Activity.class);
+        startActivity(intent);
+    }
+    public void openDashboard(){
+        Intent intent = new Intent(this, Dashboard.class);
         startActivity(intent);
     }
 }

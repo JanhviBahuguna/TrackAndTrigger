@@ -13,16 +13,5 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
-    <style name="dashboard_body">
-        <item name = "android:background"> #EC407A</item>
-        <item name = "android:textColor"> @color/white</item>
-        <item name = "android:layout_height">0dp</item>
-        <item name = "android:layout_width">match_parent</item>
-        <item name = "android:textAllCaps">true</item>
-        <item name="android:layout_margin">5dp</item>
-        <item name = "android:padding">15dp</item>
-        <item name = "android:textSize">15sp</item>
-        <item name = "android:layout_weight">1</item>
-        <item name = "android:gravity">center</item>
-    </style>
+
 </resources>
