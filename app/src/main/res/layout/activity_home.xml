@@ -1,9 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Home">
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".Home">
 
+
+<androidx.cardview.widget.CardView
+    android:id="@+id/grocery"
+    android:layout_width="0dp"
+    android:layout_height="50dp"
+    android:layout_marginStart="75dp"
+    android:layout_marginTop="75dp"
+    android:layout_marginEnd="75dp"
+    app:cardBackgroundColor="@color/teal_200"
+    app:cardCornerRadius="@dimen/professional_card_radius"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <TextView
+        android:id="@+id/grocery_textview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/Grocery"
+        android:textAlignment="center"
+        android:textColor="@color/purple_700"
+        android:textColorHighlight="@color/white"
+        android:textSize="30sp"
+        android:onClick="openGrocery"
+        android:clickable="true"
+        android:focusable="true" />
+</androidx.cardview.widget.CardView>
+
+<androidx.cardview.widget.CardView
+    android:id="@+id/medicines"
+    android:layout_width="0dp"
+    android:layout_height="50dp"
+    android:layout_marginStart="75dp"
+    android:layout_marginTop="35dp"
+    android:layout_marginEnd="75dp"
+    app:cardBackgroundColor="@color/teal_200"
+    app:cardCornerRadius="@dimen/home_radius"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/grocery">
+
+    <TextView
+        android:id="@+id/medicines_textview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/Medicines"
+        android:textAlignment="center"
+        android:textColor="@color/purple_700"
+        android:textColorHighlight="@color/white"
+        android:textSize="30sp"
+        android:clickable="true"
+        android:focusable="true" />
+</androidx.cardview.widget.CardView>
+
+<androidx.cardview.widget.CardView
+    android:id="@+id/home_appliances"
+    android:layout_width="0dp"
+    android:layout_height="50dp"
+    android:layout_marginStart="75dp"
+    android:layout_marginTop="35dp"
+    android:layout_marginEnd="75dp"
+    app:cardBackgroundColor="@color/teal_200"
+    app:cardCornerRadius="@dimen/student_radius"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/medicines">
+
+    <TextView
+        android:id="@+id/home_appliances_textview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/Home_appliances"
+        android:textAlignment="center"
+        android:textColor="@color/purple_700"
+        android:textColorHighlight="@color/white"
+        android:textSize="30sp"
+        android:clickable="true"
+        android:focusable="true" />
+</androidx.cardview.widget.CardView>
+<androidx.cardview.widget.CardView
+    android:id="@+id/home_maintenence"
+    android:layout_width="0dp"
+    android:layout_height="50dp"
+    android:layout_marginStart="75dp"
+    android:layout_marginTop="35dp"
+    android:layout_marginEnd="75dp"
+    app:cardBackgroundColor="@color/teal_200"
+    app:cardCornerRadius="@dimen/student_radius"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/home_appliances">
+
+    <TextView
+        android:id="@+id/home_maintenence_textview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/Home_maintenance"
+        android:textAlignment="center"
+        android:textColor="@color/purple_700"
+        android:textColorHighlight="@color/white"
+        android:textSize="30sp"
+        android:clickable="true"
+        android:focusable="true" />
+</androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

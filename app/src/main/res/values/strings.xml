@@ -18,4 +18,23 @@
     <string name="professional">Professional</string>
     <string name="home">Home</string>
     <string name="student">Student</string>
+    <string name="Grocery">Grocery</string>
+    <string name="Home_appliances">Home Appliances</string>
+    <string name="Medicines">Medicines</string>
+    <string name="Home_maintenance">Bills</string>
+    <string name="grocery_groceryTextview">Grocery</string>
+    <string name="grocery_item_hint">Item</string>
+    <string name="grocery_value_hint">Quantity</string>
+    <string name="grocery_add_hint">Add</string>
+    <string name="grocery_add">Add</string>
+    <string name="todo">TO-DO List</string>
+    <string name="task">Task</string>
+    <string name="add_a_new_task">Add a new task</string>
+    <string name="time">Time</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="date">Date</string>
+    <string name="update_your_task">Update Your task</string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
 </resources>

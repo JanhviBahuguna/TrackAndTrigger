@@ -1,11 +1,11 @@
 package com.example.android.organizer;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class Dashboard extends AppCompatActivity {
 
@@ -28,6 +28,12 @@ public class Dashboard extends AppCompatActivity {
     }
     public void openStudent(View view) {
         Intent intent = new Intent(this, Student.class);
+        startActivity(intent);
+    }
+
+
+    public void openTodo(View view) {
+        Intent intent = new Intent(this, Todo.class);
         startActivity(intent);
     }
 }

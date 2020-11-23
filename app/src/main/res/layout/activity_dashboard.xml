@@ -30,7 +30,8 @@
             android:textColorHighlight="@color/white"
             android:textSize="30sp"
             android:onClick="openProfessional"
-            android:clickable="true"/>
+            android:clickable="true"
+            android:focusable="true" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -56,7 +57,8 @@
             android:textColorHighlight="@color/white"
             android:textSize="30sp"
             android:onClick="openHome"
-            android:clickable="true"/>
+            android:clickable="true"
+            android:focusable="true" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -82,6 +84,33 @@
             android:textColorHighlight="@color/white"
             android:textSize="30sp"
             android:onClick="openStudent"
-            android:clickable="true"/>
+            android:clickable="true"
+            android:focusable="true" />
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/dashboard_todo"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="75dp"
+        app:cardBackgroundColor="@color/teal_200"
+        app:cardCornerRadius="@dimen/student_radius"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dashboard_student">
+
+        <TextView
+            android:id="@+id/todo_textview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/todo"
+            android:textAlignment="center"
+            android:textColor="@color/purple_700"
+            android:textColorHighlight="@color/white"
+            android:textSize="30sp"
+            android:onClick="openTodo"
+            android:clickable="true"
+            android:focusable="true" />
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
