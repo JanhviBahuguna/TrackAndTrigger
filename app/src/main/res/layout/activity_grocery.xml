@@ -1,59 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Grocery">
+    android:orientation="vertical"
+    tools:context=".Todo">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="100dp"
-        android:text="@string/grocery_groceryTextview"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.appcompat.widget.SearchView
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:padding="10dp"
+        android:id="@+id/searchBar"
+        android:layout_margin="5dp"
+        app:queryHint="Search"/>
 
-    <TextView
-        android:id="@+id/grocery_key"
-        android:layout_width="107dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="56dp"
-        android:hint="@string/grocery_item_hint"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="92dp"
-        tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/grocery_quantity"
-        android:layout_width="87dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="15dp"
-        android:hint="@string/grocery_value_hint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="91dp"
-        tools:ignore="MissingConstraints" />
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/Grocery_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-    <Button
-        android:id="@+id/grocery_add"
-        android:layout_width="67dp"
-        android:layout_height="36dp"
-        android:layout_marginEnd="78dp"
-        android:text="@string/grocery_add"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="84dp"
-        tools:ignore="MissingConstraints" />
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/GroceryList"
-        android:layout_width="301dp"
-        android:layout_height="577dp"
-        android:layout_marginStart="56dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewGrocery"
+                android:layout_width="381dp"
+                android:layout_height="721dp" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_Grocery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/Grocery"
+                android:src="@drawable/ic_baseline_add_24"
+                app:backgroundTint="@color/purple_200">
+
+            </com.google.android.material.floatingactionbutton.FloatingActionButton>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.appcompat.widget.Toolbar>
+</LinearLayout>

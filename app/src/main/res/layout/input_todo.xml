@@ -45,7 +45,7 @@
             android:id="@+id/todo_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/time"
+            android:hint="@string/date"
             android:layout_margin="10dp"
             android:textStyle="bold"
             android:autofillHints=""
@@ -71,6 +71,39 @@
             android:inputType="time" />
 
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2">
+            <Button
+                android:id="@+id/timePicker_todo"
+                android:text="Time to notify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2">
+            <Button
+                android:id="@+id/datePicker_todo"
+                android:text="Date to notify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
     </LinearLayout>
 <LinearLayout
     android:layout_width="match_parent"

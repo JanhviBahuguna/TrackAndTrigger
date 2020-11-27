@@ -11,8 +11,8 @@
         android:id="@+id/todo_toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        android:theme="@style/Theme.Organizer"
+        app:popupTheme="@style/Theme.Organizer">
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="wrap_content"

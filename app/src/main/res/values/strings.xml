@@ -37,4 +37,33 @@
     <string name="update_your_task">Update Your task</string>
     <string name="delete">Delete</string>
     <string name="update">Update</string>
+    <string name="organizer">Organizer</string>
+    <string name="decluttering_life">Decluttering Life</string>
+    <string name="username">Username</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="profession">Profession</string>
+    <string name="password">Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="meetings">Meetings</string>
+    <string name="add_a_new_item">Add a new item</string>
+    <string name="item">item</string>
+    <string name="quantity">Quantity</string>
+    <string name="update_your_item">Update your item</string>
+    <string name="office_accessories">Office Accessories</string>
+    <string name="bills">Bills</string>
+    <string name="start_organizing">Start organizing!!!!</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="to_do_list">To-Do List</string>
+    <string name="TODO">TODO</string>
+    <string name="educational">Educational</string>
+    <string name="books">Books</string>
+    <string name="sports_accessories">Sports Accessories</string>
+    <string name="stationary">Stationary</string>
+    <string name="office_accessiories">Office Accessiories</string>
+    <string name="amount">Amount</string>
+    <string name="share">Share</string>
+    <string name="Item">Item</string>
+
+
 </resources>

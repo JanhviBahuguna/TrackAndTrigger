@@ -1,6 +1,13 @@
 package com.example.android.organizer;
 
 
+import android.app.AlarmManager;
+import android.app.DatePickerDialog;
+import android.app.PendingIntent;
+import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -8,14 +15,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,16 +39,18 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
 
-public class Todo extends AppCompatActivity {
+
+public class Todo extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
     private RecyclerView recyclerView;
     private DatabaseReference reference;
-    private String key="";
-    private String task;
+    static String key="";
+    public static String task;
     private String date;
-    private String time;
-
+    public static String time;
+    private NotificationHelper notificationHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +81,7 @@ public class Todo extends AppCompatActivity {
         });
     }
 
+
     private void addTask() {
 
         AlertDialog.Builder myDialog = new AlertDialog.Builder(Todo.this);
@@ -84,10 +97,30 @@ public class Todo extends AppCompatActivity {
         EditText date = myView.findViewById(R.id.todo_date);
         EditText time = myView.findViewById(R.id.todo_time);
 
+
+        Button datePicker = myView.findViewById(R.id.datePicker_todo);
+        Button timePicker = myView.findViewById(R.id.timePicker_todo);
         Button save = myView.findViewById(R.id.save_todo);
         Button cancel = myView.findViewById(R.id.cancel_todo);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            notificationHelper = new NotificationHelper(this);
+        }
 
+        timePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment timePicker = new com.example.android.organizer.TimePicker();
+                timePicker.show(getSupportFragmentManager(),"time picker");
+            }
+        });
+        datePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogFragment datePicker = new com.example.android.organizer.DatePicker();
+                datePicker.show(getSupportFragmentManager(),"date picker");
+            }
+        });
         cancel.setOnClickListener((v) -> {
             dialog.dismiss();
         });
@@ -126,10 +159,25 @@ public class Todo extends AppCompatActivity {
                 });
             }
             dialog.dismiss();
+            /*sendNotification(task.getText().toString(),time.getText().toString());*/
 
         });
 
         dialog.show();
+    }
+
+/*    private void sendNotification(String task , String time) {
+        NotificationCompat.Builder nb = notificationHelper.getChannelNotification(task,time);
+        notificationHelper.getManager().notify(1,nb.build());
+    }*/
+
+    private void setAlarm(Calendar c)
+    {
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(this,AlertReciever.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this,1,intent,0);
+
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP,c.getTimeInMillis(),pendingIntent);
     }
 
     @Override
@@ -176,6 +224,22 @@ public class Todo extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.HOUR_OF_DAY,hourOfDay);
+        c.set(Calendar.MINUTE,minute);
+        c.set(Calendar.SECOND,0);
+        setAlarm(c);
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.YEAR,year);
+        c.set(Calendar.MONTH,month);
+        c.set(Calendar.DAY_OF_MONTH,dayOfMonth);
+    }
 
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {

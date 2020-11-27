@@ -1,113 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".Home">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-<androidx.cardview.widget.CardView
-    android:id="@+id/grocery"
-    android:layout_width="0dp"
-    android:layout_height="50dp"
-    android:layout_marginStart="75dp"
-    android:layout_marginTop="75dp"
-    android:layout_marginEnd="75dp"
-    app:cardBackgroundColor="@color/teal_200"
-    app:cardCornerRadius="@dimen/professional_card_radius"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent">
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            app:cardElevation="3dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dashboard_homeappliances"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:text="Home Appliances" />
+
+                <ImageView
+                    android:id="@+id/dashboard_homeappliances"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:onClick="openHomeAppliances"
+                    app:srcCompat="@drawable/homeappliances" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            app:cardElevation="3dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dashboard_bills"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:text="Bills" />
+
+                <ImageView
+                    android:id="@+id/dashboard_bills"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:onClick="openBills"
+                    app:srcCompat="@drawable/bills" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbaar"
+        app:navigationIcon="@drawable/menu" />
 
     <TextView
-        android:id="@+id/grocery_textview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/Grocery"
-        android:textAlignment="center"
-        android:textColor="@color/purple_700"
-        android:textColorHighlight="@color/white"
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Home"
+        android:textColor="@color/black"
         android:textSize="30sp"
-        android:onClick="openGrocery"
-        android:clickable="true"
-        android:focusable="true" />
-</androidx.cardview.widget.CardView>
-
-<androidx.cardview.widget.CardView
-    android:id="@+id/medicines"
-    android:layout_width="0dp"
-    android:layout_height="50dp"
-    android:layout_marginStart="75dp"
-    android:layout_marginTop="35dp"
-    android:layout_marginEnd="75dp"
-    app:cardBackgroundColor="@color/teal_200"
-    app:cardCornerRadius="@dimen/home_radius"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/grocery">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <TextView
-        android:id="@+id/medicines_textview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/Medicines"
-        android:textAlignment="center"
-        android:textColor="@color/purple_700"
-        android:textColorHighlight="@color/white"
-        android:textSize="30sp"
-        android:clickable="true"
-        android:focusable="true" />
-</androidx.cardview.widget.CardView>
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Home management made easy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-<androidx.cardview.widget.CardView
-    android:id="@+id/home_appliances"
-    android:layout_width="0dp"
-    android:layout_height="50dp"
-    android:layout_marginStart="75dp"
-    android:layout_marginTop="35dp"
-    android:layout_marginEnd="75dp"
-    app:cardBackgroundColor="@color/teal_200"
-    app:cardCornerRadius="@dimen/student_radius"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/medicines">
-
-    <TextView
-        android:id="@+id/home_appliances_textview"
+    <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/Home_appliances"
-        android:textAlignment="center"
-        android:textColor="@color/purple_700"
-        android:textColorHighlight="@color/white"
-        android:textSize="30sp"
-        android:clickable="true"
-        android:focusable="true" />
-</androidx.cardview.widget.CardView>
-<androidx.cardview.widget.CardView
-    android:id="@+id/home_maintenence"
-    android:layout_width="0dp"
-    android:layout_height="50dp"
-    android:layout_marginStart="75dp"
-    android:layout_marginTop="35dp"
-    android:layout_marginEnd="75dp"
-    app:cardBackgroundColor="@color/teal_200"
-    app:cardCornerRadius="@dimen/student_radius"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/home_appliances">
+        android:layout_height="175dp"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
 
-    <TextView
-        android:id="@+id/home_maintenence_textview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/Home_maintenance"
-        android:textAlignment="center"
-        android:textColor="@color/purple_700"
-        android:textColorHighlight="@color/white"
-        android:textSize="30sp"
-        android:clickable="true"
-        android:focusable="true" />
-</androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            app:cardElevation="3dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dashboard_grocery"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:text="Grocery" />
+
+                <ImageView
+                    android:id="@+id/dashboard_grocery"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:onClick="openGrocery"
+                    app:srcCompat="@drawable/grocery" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            app:cardElevation="3dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/dashboard_medicine"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:text="Medicine" />
+
+                <ImageView
+                    android:id="@+id/dashboard_medicine"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:onClick="openMedicines"
+                    app:srcCompat="@drawable/medicine" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
