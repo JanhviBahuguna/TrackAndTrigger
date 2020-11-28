@@ -32,9 +32,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.concurrent.TimeUnit;
 
@@ -43,8 +46,11 @@ public class Verification1 extends AppCompatActivity {
     Button verify_btn;
     EditText phoneNoEnteredByTheUser;
     ProgressBar progressBar;
+    FirebaseDatabase rootNode;
+    FirebaseAuth mAuth;
+    DatabaseReference reference;
 
-    private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,8 +132,14 @@ public class Verification1 extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if(task.isSuccessful()){
+                            FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
+                            String onlineUserId = mUser.getUid();
+                            rootNode = FirebaseDatabase.getInstance();
+                            reference = rootNode.getReference().child("UserInfo").child(onlineUserId);
+                            UserHelper userHelper = new UserHelper(Register_Activity.reg_email_, Register_Activity.reg_password_,Register_Activity.reg_phone_,Register_Activity.reg_profession_);
+                            reference.push().setValue(userHelper);
                             Toast.makeText(Verification1.this, "Your Account has been created successfully!", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(),Dashboard.class);
+                            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                         }

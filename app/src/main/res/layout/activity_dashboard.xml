@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/leaf_background"
     tools:context=".Dashboard">
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -175,9 +177,11 @@
                     app:srcCompat="@drawable/work_icon"
                     android:onClick="openProfessional"
                     android:contentDescription="@string/TODO" />
+
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
-    </LinearLayout>
 
+    </LinearLayout>
+ 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

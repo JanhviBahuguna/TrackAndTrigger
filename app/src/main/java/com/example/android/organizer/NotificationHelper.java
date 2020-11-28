@@ -40,11 +40,11 @@ public class NotificationHelper extends ContextWrapper {
 
         return mManager;
     }
-String message = Todo.task + " " + Todo.time;
+String message = Todo.mTask + " " + Todo.mTime;
     public NotificationCompat.Builder getChannelNotification()
     {
         return new NotificationCompat.Builder(getApplicationContext(),channelID)
-                .setContentTitle("reminder for your task")
+                .setContentTitle("Reminder for you task")
                 .setContentText(message)
                 .setSmallIcon(R.drawable.logo_splash_200x200)
                 ;

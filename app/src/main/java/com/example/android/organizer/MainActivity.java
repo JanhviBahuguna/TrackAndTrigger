@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView image;
     TextView logoText, sloganText;
     TextInputLayout username, password;
-    GoogleSignInClient mGoogleSignInClient;
+    public static GoogleSignInClient mGoogleSignInClient;
     private final int RC_SIGN_IN=123;
     private FirebaseAuth mAuth;
 
@@ -93,9 +93,16 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                Intent intent = new Intent(MainActivity.this, Dashboard.class);
-                                startActivity(intent);
-                                finish();
+                                if(mAuth.getCurrentUser().isEmailVerified()) {
+                                    Intent intent = new Intent(MainActivity.this, Dashboard.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                                else
+                                {
+                                    Toast.makeText(MainActivity.this, "Please verify your email", Toast.LENGTH_SHORT).show();
+                                }
+
                             } else {
                                 String error = task.getException().toString();
                                 Toast.makeText(MainActivity.this, "login failed" + error, Toast.LENGTH_SHORT).show();

@@ -58,7 +58,7 @@ public class OfficeAccessories extends AppCompatActivity {
 
         FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
         String onlineUserId = mUser.getUid();
-        reference = FirebaseDatabase.getInstance().getReference().child("Office_accessiories").child(onlineUserId);
+        reference = FirebaseDatabase.getInstance().getReference().child("Office Accessories").child(onlineUserId);
 
         FloatingActionButton fab = findViewById(R.id.fab_office_accessories);
         fab.setOnClickListener(new View.OnClickListener() {

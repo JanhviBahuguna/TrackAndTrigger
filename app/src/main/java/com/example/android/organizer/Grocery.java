@@ -38,6 +38,8 @@ public class Grocery extends AppCompatActivity {
     private String key="";
     private String Item;
     private String Quantity;
+//    String text;
+
 
 
     @Override
@@ -47,16 +49,12 @@ public class Grocery extends AppCompatActivity {
         setContentView(R.layout.activity_grocery);
 
         Toolbar toolbar = findViewById(R.id.Grocery_toolbar);
-/*        Button searchButton = findViewById(R.id.search);
-        EditText searchText = findViewById(R.id.searchText);*/
-
         recyclerView = findViewById(R.id.recyclerViewGrocery);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setReverseLayout(true);
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(linearLayoutManager);
-
         FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
         String onlineUserId = mUser.getUid();
         reference = FirebaseDatabase.getInstance().getReference().child("Grocery").child(onlineUserId);
@@ -69,14 +67,7 @@ public class Grocery extends AppCompatActivity {
             }
         });
 
-/*
-        searchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String searchtext = searchText.getText().toString();
-                reference.orderByChild("Grocery").startAt(searchtext).endAt(searchtext+"\uf8ff");
-            }
-        });*/
+
     }
 
 
@@ -116,7 +107,7 @@ public class Grocery extends AppCompatActivity {
                 Quantity.setError("Quantity required");
                 return;
             } else {
-                Data data = new Data(mItem, mQuantity, id);
+                Data data = new Data(mItem, mQuantity,id);
                 reference.push().setValue(data).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> Item) {
@@ -285,4 +276,27 @@ public class Grocery extends AppCompatActivity {
 
         dialog.show();
     }
+
+   /* private void firebaseUserSearch(String text) {
+        Query firebaseSearchQuery = reference.orderByChild("name").startAt(text).endAt(text+"\uf8ff");
+        FirebaseRecyclerOptions<Data> options = new FirebaseRecyclerOptions.Builder<Data>()
+                .setQuery(reference, Data.class)
+                .build();
+        FirebaseRecyclerAdapter<Data,MyViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Data, MyViewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull Data data) {
+                holder.setItem(data.getItem());
+                holder.setQuantity(data.getQuantity());
+            }
+
+            @NonNull
+            @Override
+            public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_layout, parent, false);
+                return new MyViewHolder(view);
+            }
+        };
+        recyclerView.setAdapter(firebaseRecyclerAdapter);
+        firebaseRecyclerAdapter.startListening();
+    }*/
 }

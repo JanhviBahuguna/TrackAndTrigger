@@ -3,4 +3,5 @@
     <dimen name="professional_card_radius">8dp</dimen>
     <dimen name="home_radius">8dp</dimen>
     <dimen name="student_radius">8dp</dimen>
+    <dimen name="margin_left">50dp</dimen>
 </resources>

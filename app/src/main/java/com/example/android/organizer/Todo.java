@@ -50,6 +50,7 @@ public class Todo extends AppCompatActivity implements DatePickerDialog.OnDateSe
     public static String task;
     private String date;
     public static String time;
+    public static String mTask,mTime;
     private NotificationHelper notificationHelper;
 
     @Override
@@ -126,9 +127,9 @@ public class Todo extends AppCompatActivity implements DatePickerDialog.OnDateSe
         });
 
         save.setOnClickListener((v) -> {
-            String mTask = task.getText().toString();
+            mTask = task.getText().toString();
             String mDate = date.getText().toString();
-            String mTime = time.getText().toString();
+            mTime = time.getText().toString();
             String id = reference.getKey();
 
             if (TextUtils.isEmpty(mTask)) {
@@ -159,17 +160,12 @@ public class Todo extends AppCompatActivity implements DatePickerDialog.OnDateSe
                 });
             }
             dialog.dismiss();
-            /*sendNotification(task.getText().toString(),time.getText().toString());*/
 
         });
 
         dialog.show();
     }
 
-/*    private void sendNotification(String task , String time) {
-        NotificationCompat.Builder nb = notificationHelper.getChannelNotification(task,time);
-        notificationHelper.getManager().notify(1,nb.build());
-    }*/
 
     private void setAlarm(Calendar c)
     {

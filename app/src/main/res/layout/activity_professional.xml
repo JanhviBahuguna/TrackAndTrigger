@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/leaf_background"
     tools:context=".Professional">
 
     <LinearLayout
@@ -11,14 +12,11 @@
         android:layout_height="175dp"
         android:orientation="horizontal"
         android:padding="10dp"
+        android:weightSum="4"
+        android:gravity="center_horizontal"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            app:cardElevation="0dp" />
+
 
         <androidx.cardview.widget.CardView
             android:layout_width="0dp"
@@ -51,12 +49,6 @@
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            app:cardElevation="0dp" />
     </LinearLayout>
 
     <include

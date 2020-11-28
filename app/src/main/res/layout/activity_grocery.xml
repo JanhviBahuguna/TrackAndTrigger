@@ -7,15 +7,11 @@
     android:orientation="vertical"
     tools:context=".Todo">
 
-    <androidx.appcompat.widget.SearchView
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:padding="10dp"
-        android:id="@+id/searchBar"
-        android:layout_margin="5dp"
-        app:queryHint="Search"/>
-
-
+<!--<EditText
+    android:id="@+id/search_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Search"/>-->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/Grocery_toolbar"
         android:layout_width="match_parent"
@@ -24,14 +20,14 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewGrocery"
-                android:layout_width="381dp"
-                android:layout_height="721dp" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/fab_Grocery"

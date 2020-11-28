@@ -2,7 +2,7 @@ package com.example.android.organizer;
 
 public class Data {
 
-    String item,id;
+    String item,email_id;
     String quantity;
 
     public String getItem() {
@@ -14,11 +14,11 @@ public class Data {
     }
 
     public String getId() {
-        return id;
+        return email_id;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.email_id = email_id;
     }
 
     public String getQuantity() {
@@ -29,11 +29,11 @@ public class Data {
         this.quantity = quantity;
     }
 
-    public Data(String item, String quantity, String id)
+    public Data(String item, String quantity, String email_id)
     {
         this.item = item;
         this.quantity = quantity;
-        this.id =id;
+        this.email_id =email_id;
 
     }
 
