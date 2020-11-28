@@ -80,7 +80,9 @@ public class Register_Activity extends AppCompatActivity {
                 }
 
                 boolean regex_email = Pattern.matches("^[a-z0-9]+[\\._]?[a-z0-9]+[@]\\w+[.]\\w{2,3}$",reg_email_);
-                if(regex_email == false){
+                boolean regex_student = Pattern.matches("[fp][2][0][0-9]{6}[@][a-z]+[.][b][i][t][s][-][p][i][l][a][n][i][.][a][c][.][i][n]",reg_email_);
+                boolean regex_faculty = Pattern.matches("[a-z]+[@][a-z]+[.][b][i][t][s][-][p][i][l][a][n][i][.][a][c][.][i][n]",reg_email_);
+                if(regex_email == false && regex_student == false && regex_faculty == false){
                     regemail.setError("Email format is wrong");
                 }
                 boolean regex_phone = Pattern.matches("[0-9]{10}",reg_phone_);

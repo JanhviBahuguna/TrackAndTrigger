@@ -81,29 +81,11 @@
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2">
-            <Button
-                android:id="@+id/timePicker_todo"
-                android:text="Time to notify"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:textStyle="bold"/>
-
-        </RelativeLayout>
+            android:layout_weight="2"/>
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2">
-            <Button
-                android:id="@+id/datePicker_todo"
-                android:text="Date to notify"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:textStyle="bold"/>
-
-        </RelativeLayout>
+            android:layout_weight="2"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"

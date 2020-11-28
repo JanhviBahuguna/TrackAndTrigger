@@ -14,6 +14,7 @@ public class NotificationHelper extends ContextWrapper {
     public static final String channelID = "ChannelID";
     public static final String channelName = "Channel";
 
+
     NotificationManager mManager;
     @RequiresApi(api = Build.VERSION_CODES.O)
     public NotificationHelper(Context base) {
@@ -29,6 +30,7 @@ public class NotificationHelper extends ContextWrapper {
                 channel.setLightColor(R.color.black);
                 channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
                 getManager().createNotificationChannel(channel);
+
     }
 
     public NotificationManager getManager() {
@@ -40,7 +42,7 @@ public class NotificationHelper extends ContextWrapper {
 
         return mManager;
     }
-String message = Todo.mTask + " " + Todo.mTime;
+String message = Todo.mTask + " is scheduled at: " + Todo.mTime;
     public NotificationCompat.Builder getChannelNotification()
     {
         return new NotificationCompat.Builder(getApplicationContext(),channelID)
@@ -50,5 +52,6 @@ String message = Todo.mTask + " " + Todo.mTime;
                 ;
 
     }
+
 
 }

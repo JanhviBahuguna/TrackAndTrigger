@@ -38,7 +38,7 @@ public class Grocery extends AppCompatActivity {
     private String key="";
     private String Item;
     private String Quantity;
-//    String text;
+//  String text;
 
 
 
@@ -277,26 +277,4 @@ public class Grocery extends AppCompatActivity {
         dialog.show();
     }
 
-   /* private void firebaseUserSearch(String text) {
-        Query firebaseSearchQuery = reference.orderByChild("name").startAt(text).endAt(text+"\uf8ff");
-        FirebaseRecyclerOptions<Data> options = new FirebaseRecyclerOptions.Builder<Data>()
-                .setQuery(reference, Data.class)
-                .build();
-        FirebaseRecyclerAdapter<Data,MyViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Data, MyViewHolder>(options) {
-            @Override
-            protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull Data data) {
-                holder.setItem(data.getItem());
-                holder.setQuantity(data.getQuantity());
-            }
-
-            @NonNull
-            @Override
-            public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_layout, parent, false);
-                return new MyViewHolder(view);
-            }
-        };
-        recyclerView.setAdapter(firebaseRecyclerAdapter);
-        firebaseRecyclerAdapter.startListening();
-    }*/
 }

@@ -18,5 +18,6 @@ public class AlertReciever extends BroadcastReceiver {
         }
         NotificationCompat.Builder nb = notificationHelper.getChannelNotification();
         notificationHelper.getManager().notify(1,nb.build());
+
     }
 }

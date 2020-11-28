@@ -1,6 +1,8 @@
 package com.example.android.organizer;
 
+
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -29,16 +31,17 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Meetings extends AppCompatActivity {
+
+public class Meetings extends AppCompatActivity  {
 
     private RecyclerView recyclerView;
     private DatabaseReference reference;
-    private String key="";
-    private String task;
-    private String date;
-    private String time;
-
-
+    static String key="";
+    public static String task;
+    public static String date;
+    public static String time;
+    public static String mTask,mTime,mDate;
+    private NotificationHelper notificationHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +49,7 @@ public class Meetings extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_meetings);
 
-        Toolbar toolbar = findViewById(R.id.meetings_toolbar);
+        Toolbar toolbar = findViewById(R.id.todo_toolbar);
 
 
         recyclerView = findViewById(R.id.recyclerViewmeetings);
@@ -58,7 +61,7 @@ public class Meetings extends AppCompatActivity {
 
         FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
         String onlineUserId = mUser.getUid();
-        reference = FirebaseDatabase.getInstance().getReference().child("meetings").child(onlineUserId);
+        reference = FirebaseDatabase.getInstance().getReference().child("Meetings").child(onlineUserId);
 
         FloatingActionButton fab = findViewById(R.id.fab_meetings);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -69,12 +72,13 @@ public class Meetings extends AppCompatActivity {
         });
     }
 
+
     private void addTask() {
 
         AlertDialog.Builder myDialog = new AlertDialog.Builder(Meetings.this);
         LayoutInflater inflater = LayoutInflater.from(Meetings.this);
 
-        View myView = inflater.inflate(R.layout.input_todo, null);
+        View myView = inflater.inflate(R.layout.meeting_input, null);
         myDialog.setView(myView);
 
         AlertDialog dialog = myDialog.create();
@@ -87,15 +91,19 @@ public class Meetings extends AppCompatActivity {
         Button save = myView.findViewById(R.id.save_todo);
         Button cancel = myView.findViewById(R.id.cancel_todo);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            notificationHelper = new NotificationHelper(this);
+        }
+
 
         cancel.setOnClickListener((v) -> {
             dialog.dismiss();
         });
 
         save.setOnClickListener((v) -> {
-            String mTask = task.getText().toString();
+            mTask = task.getText().toString();
             String mDate = date.getText().toString();
-            String mTime = time.getText().toString();
+            mTime = time.getText().toString();
             String id = reference.getKey();
 
             if (TextUtils.isEmpty(mTask)) {
@@ -132,6 +140,8 @@ public class Meetings extends AppCompatActivity {
         dialog.show();
     }
 
+
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -140,10 +150,10 @@ public class Meetings extends AppCompatActivity {
                 .setQuery(reference, Todo_data.class)
                 .build();
 
-        FirebaseRecyclerAdapter<Todo_data, Meetings.MyViewHolder> adapter = new FirebaseRecyclerAdapter<Todo_data, Meetings.MyViewHolder>(options) {
+        FirebaseRecyclerAdapter<Todo_data, MyViewHolder> adapter = new FirebaseRecyclerAdapter<Todo_data, MyViewHolder>(options) {
 
             @Override
-            protected void onBindViewHolder(@NonNull Meetings.MyViewHolder holder, int position, @NonNull Todo_data todo_data) {
+            protected void onBindViewHolder(@NonNull MyViewHolder holder, int position, @NonNull Todo_data todo_data) {
                 holder.setTask(todo_data.getTask());
                 holder.setDate(todo_data.getDate());
                 holder.setTime(todo_data.getTime());
@@ -165,9 +175,9 @@ public class Meetings extends AppCompatActivity {
 
             @NonNull
             @Override
-            public Meetings.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.meetings_retrieved, parent, false);
-                return new Meetings.MyViewHolder(view);
+                return new MyViewHolder(view);
             }
         };
 
@@ -206,7 +216,7 @@ public class Meetings extends AppCompatActivity {
     private void updateTask() {
         AlertDialog.Builder myDialog = new AlertDialog.Builder(this);
         LayoutInflater inflater = LayoutInflater.from(this);
-        View view = inflater.inflate(R.layout.todo_update,null);
+        View view = inflater.inflate(R.layout.meeting_update,null);
         myDialog.setView(view);
 
         AlertDialog dialog = myDialog.create();
@@ -280,7 +290,7 @@ public class Meetings extends AppCompatActivity {
         shareButton.setOnClickListener(v -> {
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT, "Meeting: " +  mTask.getText().toString()+"\n"+"Date: " +  mDate.getText().toString()+"\n" + "Time: " + mTime.getText().toString());
+            sendIntent.putExtra(Intent.EXTRA_TEXT, "Task: " +  mTask.getText().toString()+"\n" + "Time: " + mTime.getText().toString() + "\n" + "Date: " + mDate.getText().toString());
             sendIntent.setType("text/plain");
 
             Intent shareIntent = Intent.createChooser(sendIntent, null);
@@ -289,4 +299,3 @@ public class Meetings extends AppCompatActivity {
         dialog.show();
     }
 }
-

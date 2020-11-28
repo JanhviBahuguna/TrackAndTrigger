@@ -48,9 +48,9 @@ public class Todo extends AppCompatActivity implements DatePickerDialog.OnDateSe
     private DatabaseReference reference;
     static String key="";
     public static String task;
-    private String date;
+    public static String date;
     public static String time;
-    public static String mTask,mTime;
+    public static String mTask,mTime,mDate;
     private NotificationHelper notificationHelper;
 
     @Override
