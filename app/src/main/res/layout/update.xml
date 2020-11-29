@@ -92,7 +92,7 @@
                 android:textSize="15sp"
                 android:textColor="@color/black"
                 android:autofillHints=""
-                android:inputType="date" />
+                android:inputType="text" />
 
         </RelativeLayout>
     </LinearLayout>

@@ -209,7 +209,7 @@ public class Books extends AppCompatActivity {
 
         Button delButton = view.findViewById(R.id.delete);
         Button updateButton = view.findViewById(R.id.update);
-
+        Button shareButton = view.findViewById(R.id.share);
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -258,7 +258,7 @@ public class Books extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
-        Button shareButton = findViewById(R.id.share);
+
         shareButton.setOnClickListener(v -> {
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
